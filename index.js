@@ -20,9 +20,10 @@ AjaxTransport.prototype.send = function(body, callback) {
 		.type('application/json')
 		.accept('application/json');
 
+	var self = this;
 	Object.keys(this.params.headers)
 		.forEach(function(header) {
-			req.set(header, this.params.headers[header]);
+			req.set(header, self.params.headers[header]);
 		})
 
 	req.send(body)

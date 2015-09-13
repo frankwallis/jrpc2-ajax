@@ -18,6 +18,7 @@ describe('AjaxTransport', function() {
 
 		// in the browser you can just use path: "/api/" if connecting to window.location
 		var ajax = new AjaxTransport({path: "http://localhost:8081/"});
+		ajax.setHeader("my-header", 1);
 		var client = new rpc.Client(ajax);
 
 		client.invoke('sum', { a: 5, b: 17 }, function (err, raw) {
